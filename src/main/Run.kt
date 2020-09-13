@@ -21,8 +21,9 @@ fun main() {
     )
     // transform colors into <0;1> range
     for (d1 in train) {
-        for (i in d1.indices)
+        for (i in d1.indices) {
             d1[i] = d1[i] / 255.0
+        }
     }
 
     // train for 2000 iterations

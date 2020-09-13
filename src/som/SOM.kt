@@ -19,6 +19,7 @@ object SOM {
             val random = (Math.random() * train.size).toInt()
             val trainElement = train[random]
 
+            // get the most similar cell in the lattice (based on distance between the values)
             var minX = 0
             var minY = 0
             var minDistance = Double.MAX_VALUE
@@ -33,14 +34,18 @@ object SOM {
                 }
             }
 
+            // get radius and learning rate based on the current iteration
             val radius = getRadius(lattice.data.size, n, iterations)
-
             val learningRate = getLearningRate(n, iterations)
+
+            // for every cell in the lattice
             for (x in lattice.data.indices) {
                 for (y in lattice.data[0].indices) {
                     val distance = getDistance(minX, minY, x, y)
                     if (distance > radius) continue
+                    // update only those cells that are in the radius
 
+                    // calculate new weight for this cell
                     val currentWeight = lattice.data[x][y]
                     val influence = exp(-distance / (2 * radius))
                     val newWeight = trainElement
