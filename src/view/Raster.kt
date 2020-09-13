@@ -6,17 +6,16 @@ import java.awt.Graphics
 import java.awt.image.BufferedImage
 import javax.swing.JPanel
 
-class Raster: JPanel() {
+class Raster(count: Int, size: Int) : JPanel() {
 
     private val img: BufferedImage
     private val g: Graphics
 
-    private val WIDTH = 15 * 40
-    private val HEIGHT = 15 * 40
-
     init {
-        preferredSize = Dimension(WIDTH, HEIGHT)
-        img = BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB)
+        val width = size * count
+        val height = size * count
+        preferredSize = Dimension(width, height)
+        img = BufferedImage(width, height, BufferedImage.TYPE_INT_RGB)
         g = img.graphics
     }
 

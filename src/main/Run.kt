@@ -6,7 +6,9 @@ import view.Window
 
 // http://www.ai-junkie.com/ann/som/som1.html
 fun main() {
-    val lattice = Lattice(40, 3)
+    val count = 40
+
+    val lattice = Lattice(count, 3)
 
     // train data - colors as 3 dimensional vectors are put into 2 dimensional grid
     val train: Array<Array<Double>> = arrayOf(
@@ -32,12 +34,13 @@ fun main() {
     SOM.train(lattice, train, iterations)
 
     // show results
-    val window = Window()
+    val size = 10
+    val window = Window(count, size)
     val raster = window.raster
 
     for (x in lattice.data.indices) {
         for (y in lattice.data[0].indices) {
-            raster.drawArea(x, y, 15, lattice.data[x][y])
+            raster.drawArea(x, y, size, lattice.data[x][y])
         }
     }
     raster.repaint()
