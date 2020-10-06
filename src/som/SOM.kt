@@ -60,7 +60,7 @@ object SOM {
     }
 
     /**
-     * Return per-element distance of two array
+     * Return per-element distance of two arrays
      *
      * @param array1 first array
      * @param array2 second array

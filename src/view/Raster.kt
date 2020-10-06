@@ -19,7 +19,7 @@ class Raster(count: Int, size: Int) : JPanel() {
         g = img.graphics
     }
 
-    public override fun paintComponent(g: Graphics) {
+    override fun paintComponent(g: Graphics) {
         super.paintComponent(g)
         g.drawImage(img, 0, 0, null)
     }
